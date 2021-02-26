@@ -1,0 +1,113 @@
+@import '../../assets/variables';
+
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  overflow: auto;
+}
+
+.modalWindow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+
+  width: 384px;
+  background-color: $white;
+  text-align: center;
+  border-radius: 24px;
+  padding-bottom: 66px;
+}
+
+.wrapperForCatNamePrice__pos_margin_top {
+  margin-top: 54px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 480px) {
+  .modalWindow {
+    width: 293px;
+    height: 424px;
+  }
+
+  .wrapperForCatNamePrice__pos_margin_top {
+    margin-top: 18px;
+    margin-bottom: 12px;
+  }
+}
+
+.btnClose {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: $bc;
+  border: none;
+  cursor: pointer;
+  margin-top: -14px;
+  margin-right: -14px;
+  color: $black;
+
+  &__content {
+    font-size: 32px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: $aquamarine;
+  }
+}
+
+.btn-arrow {
+  position: relative;
+  transition: background-color 300ms ease-out;
+
+  span {
+    display: inline-block;
+    position: relative;
+    transition: all 300ms ease-out;
+    will-change: transform;
+  }
+
+  &:hover span {
+    transform: translate3d(-1rem, 0, 0);
+  }
+
+  svg {
+    position: absolute;
+    width: 17px;
+    right: 0px;
+    opacity: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 300ms ease-out;
+    will-change: right, opacity;
+
+    * {
+      stroke-width: 4;
+      -webkit-stroke-color: transparent;
+    }
+  }
+
+  &:hover svg {
+    opacity: 1;
+    right: -25px;
+  }
+}
+
+
