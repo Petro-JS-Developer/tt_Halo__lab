@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+Если по тестовому есть вопросы - обязательно напишите, я буду рад на них ответить.
+Если вопросов не будет - напишите сколько времени вам нужно на выполнение. Оценивайте задачу так, чтоб у вас было достаточно времени на то чтоб отдать ваш лучший код.
+Писать можно или в телеграм (+38 063 245-45-22) или на почту (на почте я немного медленней отвечаю).
+Задача:
+Нужно написать React приложение, которое получает список товаров с сервера и выводит его на страницу. При клике на товар открывается модальное окно с формой в которую пользователь должен ввести свое имя и номер телефона.
+Создать проект на ReactJS + Webpack. Можно create-react-app
+В проекте сверстать страницу Cards и Модальное окно: https://www.figma.com/file/yPQsftMIwgUJmGad6jc0MV/Test?node-id=0%3A1
+Обязательно разбить страницу на компоненты, в остальном архитектура проекта на ваше усмотрение
+Визуально верстка должна быть приближена к дизайну, но pixel perfect не нужен.
+Нужна верстка для мобильных, ее нужно сделать без макета, дизайн на ваше усмотрение
+Состояния для элементов (hover, error) нужно взять из блока States (есть на дизайне), если каких состояний не хватает - сделайте их на свое усмотрение. http://prntscr.com/100q0n1 hover
+Получить список карточек с сервера: https://run.mocky.io/v3/b7d36eea-0b3f-414a-ba44-711b5f5e528e и вывести эти данные в верстку
+При клике на кнопку buy на карточке должно открываться модальное окно покупки товара. Есть на макете.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+При клике на Buy cheapest нужно открывать модальное окно покупки самого дешевого товара.
 
-## Available Scripts
+Поля в модальном окне должны валидироваться. Для валидации нельзя использовать готовые библиотеки. 
+Как работает валидация:
+Валидация должна срабатывать в двух случаях:
+Когда юзер ввел невалидные данные и убрал фокус с поля, мы показываем невалидное состояние для этого поля.
+Когда юзер не заполнил обязательные поля и нажал кнопку Submit, мы показываем невалидное состояние для всех пустых обязательных полей и для всех полей которые заполнены некорректно
+Когда юзер начал заполнять данные в невалидном поле - невалидный стейт нужно убрать
+Правила валидации:
+Поле Name
+Считается невалидным, если осталось незаполненным. Текст ошибки: "This field in required"
+Должно содержать только буквы. Текст ошибки: "Only letters allowed"
+Поля Phone number
+Считается невалидным, если остались незаполненным. Текст ошибки: "This field in required"
+Должно содержать только цифры. Текст ошибки: "Only numbers allowed"
+Должно содержать 12 символов. Текст ошибки: "Should contain 12 characters"
+Если все поля корректно заполнены, после нажатия на Submit данные формы должны выводиться в консоль
+И верстка и JS должны корректно работать в последних версиях Chrome, Firefox и Edge.
+Выполненое задание нужно залить на github или bitbucket и предоставить ссылку
+Дополнительно
+Дополнительно, но не обязательно. Самостоятельно реализовать сервер, который отправляет список товаров, как здесь: https://run.mocky.io/v3/b7d36eea-0b3f-414a-ba44-711b5f5e528e
+И после принимает данные после сабмита формы.
+Что мы проверяем при оценке решения
+Насколько внимательно вы относитесь к требованиям тестового задания. Если все требования задания учтены, значит и к деталям рабочих задач будете относиться внимательно.
+Верстка:
+Качество верстки. Как вы пишете стили, насколько легко или сложно их будет поддерживать в будущем
+Внешний вид сверстанной страницы. Как написано выше, pixel perfect не нужен, но нужно видеть отступы элементов, расположение, детали внешнего вида (размер шрифта, рамки, тени и т.д.)
+Прилично ли страница выглядит в разных браузерах. Идеальное соответствие не нужно, но и разваливаться страница не должна.
+JS:
+Разбивка на компоненты. Приложение должно быть расширяемо, поэтому важно сразу разбить его на компоненты
+Работа с данными и с API
+Как вы организовали хранение и вывод данных
+Как вы организовали запрос данных с API
+Валидация. Это важный пункт, здесь оцениваются несколько вещей:
+Работа с данными. Как вы храните и обрабатываете данные, введенные пользователем.
+Работа с состоянием поля. Как организовано отображение валидных и невалидных полей.
+Работа с валидаторами. Насколько легко добавлять дополнительные валидаторы для полей. К примеру насколько легко добавить проверку на максимальное количество символов в поле Description.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
